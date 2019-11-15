@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityRecherche"></activity>
+        <activity
+            android:name=".ActivityListeResultat"
+            android:label="@string/title_activity_liste_resultat"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ActivityRecherche" />
         <activity android:name=".ActivityRechercheSW" />
         <activity android:name=".MainActivity">
             <intent-filter>
