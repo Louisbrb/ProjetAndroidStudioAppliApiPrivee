@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
         accesSW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentSW = new Intent(MainActivity.this, ActivityRechercheSW.class);
-                startActivity(intentSW);
+                openRechercheActivity("Star wars");
             }
         });
 
@@ -29,9 +28,14 @@ public class MainActivity extends AppCompatActivity {
         accesBiere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentBiere = new Intent(MainActivity.this, ActivityRechercheBiere.class);
-                startActivity(intentBiere);
+                openRechercheActivity("Biere");
             }
         });
+    }
+    protected void openRechercheActivity(String Api)
+    {
+        Intent intentRecherche = new Intent(MainActivity.this, ActivityRecherche.class);
+        intentRecherche.putExtra ("Api",Api );
+        startActivity(intentRecherche);
     }
 }
