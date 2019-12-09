@@ -40,7 +40,7 @@ public class ActivityRecherche extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle extras = getIntent (). getExtras ();
+        Bundle extras = getIntent().getExtras();
         API  = extras.getString ("Api");
         if (API.equals( "Biere"))
         {

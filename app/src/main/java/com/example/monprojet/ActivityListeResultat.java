@@ -40,7 +40,7 @@ public class ActivityListeResultat extends AppCompatActivity {
     }
     protected void OpenDetail(String ElementARechercher)
     {
-        Intent intentRecherche = new Intent(ActivityListeResultat.this, Détail.class);
+        Intent intentRecherche = new Intent(ActivityListeResultat.this, MainActivity.class);
         intentRecherche.putExtra ("search",ElementARechercher );
         startActivity(intentRecherche);
     }
