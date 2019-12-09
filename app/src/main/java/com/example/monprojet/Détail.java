@@ -1,5 +1,4 @@
 package com.example.monprojet;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,10 +20,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.os.Bundle;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-public class ActivityRecherche extends AppCompatActivity {
+public class Détail {
     //
     String requeteBiere = "https://api.punkapi.com/v2/";
     String requeteSW = "https://swapi.co/api/films/";
@@ -90,34 +90,34 @@ public class ActivityRecherche extends AppCompatActivity {
         Thread thread = new Thread(new Runnable(){
 
             public void run() {
-        try {
+                try {
 
-            URL url = new URL(API + QUERY);
-            StringBuilder response = new StringBuilder();
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(url.openStream()));
+                    URL url = new URL(API + QUERY);
+                    StringBuilder response = new StringBuilder();
+                    BufferedReader reader =
+                            new BufferedReader(new InputStreamReader(url.openStream()));
 
-            for(Object line : reader.lines().collect(Collectors.toList())) {
-                response.append(line);
-            }
-            if(API.equals(requeteBiere)) {
-                for (Biere Biere : parse(response.toString())) {
+                    for(Object line : reader.lines().collect(Collectors.toList())) {
+                        response.append(line);
+                    }
+                    if(API.equals(requeteBiere)) {
+                        for (Biere Biere : parse(response.toString())) {
 
-                    MonResultat.add(Biere.name());
-                    System.out.println("===================");
-                    System.out.println(Biere);
+                            MonResultat.add(Biere.name());
+                            System.out.println("===================");
+                            System.out.println(Biere);
+                        }
+                    }
+                    else
+                    {
+                        String test = parseFilm(response.toString());
+                        System.out.println(test);
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error fetching JSON: " + e.getMessage());
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            }
-            else
-            {
-                String test = parseFilm(response.toString());
-                System.out.println(test);
-            }
-        } catch (IOException e) {
-            System.err.println("Error fetching JSON: " + e.getMessage());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
             }
 
         });

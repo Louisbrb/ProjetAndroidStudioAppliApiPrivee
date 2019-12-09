@@ -17,17 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="147dp"
-            app:srcCompat="@drawable/maison" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recherche"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Recherche" />
@@ -43,36 +38,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/Bouton_filtre"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="filtrer" />
-
-            <ScrollView
-                android:layout_width="300dp"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Contient" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </ScrollView>
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <Button
             android:id="@+id/bouton_recherche"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rechercher" />
+
+
+        <ListView
+            android:id="@+id/ListeResultats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="2dp" />
 
     </LinearLayout>
 
